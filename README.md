@@ -7,6 +7,8 @@
 - when an image is run it becomes a container, and the defined code can run
 - multiple containers can be created from the same image
 
+![Containerisation diagram](containeristion.png)
+
 ## Difference between Docker and VM
 - Docker is smaller, faster, and more easily integrated with other systems
 
@@ -31,6 +33,8 @@
 - this means that large and complex applications can be more reliably delivered
 - each individual part can be deployed, maintained, and tested on its own
 - the parts communicate to allow the user to access the full application
+
+![Microservices diagram](microservices.png)
 
 ## Docker Commands
 - `docker --version`
