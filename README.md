@@ -7,7 +7,7 @@
 - when an image is run it becomes a container, and the defined code can run
 - multiple containers can be created from the same image
 
-![Containerisation diagram](containeristion.png)
+![Containerisation diagram](images/containeristion.png)
 
 ## Difference between Docker and VM
 - Docker is smaller, faster, and more easily integrated with other systems
@@ -34,7 +34,7 @@
 - each individual part can be deployed, maintained, and tested on its own
 - the parts communicate to allow the user to access the full application
 
-![Microservices diagram](microservices.png)
+![Microservices diagram](images/microservices.png)
 
 ## Docker Commands
 - `docker --version`
@@ -53,6 +53,31 @@
 - `$ docker cp index.html 8441b5e71e08:/usr/share/nginx/html/index.html`
 - commit the new image with `docker commit container_id dockerhub_username/repo:tag`
 - push the image to dockerhub with `docker push dockerhub_username/repo`
+
+## Automate build steps
+- we use a Dockerfile with a set of instructions
+- naming convention to create Dockerfile is `Dockerfile`
+```
+FROM nginx
+
+LABEL MAINTAINER = isobelfc
+
+COPY app1 /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+- keywords in our Dockerfile need to be in all caps
+- `FROM` allows us to use the official nginx image as our base image
+- `LABEL MAINTAINER` gives the name of the creator, and is optional but is good practice
+- `COPY` copies our `app1` directory into the given address
+- `EXPOSE` exposes the required port for the base image
+- `CMD` will execute the command as it's available in the official image
+
+## Docker documentation
+- `docker run -d -p 4000:4000 docs/docker.github.io`
+- loading port 4000 will now bring up all we need to know about docker
 
 ## Kubernetes
 - Kubernetes, or K8, allows automated deployment, scaling, and management of containerisation
